@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abraham Alba | Lead Web Designer & Front-End Developer</title>
+    <style>
+        :root {
+            --bg-color: #fafafa;
+            --links-bg: #f0f0f0;
+            --text-color: #111111;
+            --accent-color: #555555;
+            --border-color: #e0e0e0;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-color);
+        }
+
+        /* Layout Principal */
+        .portfolio-layout {
+            display: flex;
+            /* En móvil: Enlaces arriba (reverse porque en el HTML están después) */
+            flex-direction: column-reverse; 
+            min-height: 100vh;
+        }
+
+        .info-panel, .links-panel {
+            padding: 3rem 2rem;
+        }
+
+        .info-panel {
+            background-color: var(--bg-color);
+        }
+
+        .links-panel {
+            background-color: var(--links-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Media Query para Escritorio (50/50) */
+        @media (min-width: 768px) {
+            .portfolio-layout {
+                flex-direction: row; /* En escritorio: Info izquierda, Enlaces derecha */
+            }
+            
+            .info-panel {
+                width: 50%;
+                padding: 4rem;
+            }
+            
+            .links-panel {
+                width: 50%;
+                padding: 4rem;
+                border-bottom: none;
+                border-left: 1px solid var(--border-color);
+                /* Anclaje para que siempre esté visible */
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                overflow-y: auto;
+            }
+        }
+
+        /* Tipografía y Espaciados de Información */
+        header {
+            margin-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            margin-bottom: 1.25rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        /* Estilos de los Enlaces / Proyectos */
+        .links-header {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-color: var(--text-color);
+        }
+
+        .project-card span {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .project-card small {
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="portfolio-layout">
+        
+        <div class="info-panel">
+            <header>
+                <h1>Abraham Alba</h1>
+                <h2>Lead Web Designer & Front-End Developer</h2>
+                <div class="info-grid">
+                    <p><strong>Ownership:</strong> End-to-end project management (Prototyping to Deployment)</p>
+                    <p><strong>Synergy:</strong> Strategic link between Brand Identity and Project Management</p>
+                    <p><strong>Focus:</strong> Preserving high-fidelity artistic vision through technical optimization</p>
+                </div>
+            </header>
+
+            <section>
+                <h3>Workflow & Tech Stack</h3>
+                <div class="info-grid">
+                    <ul>
+                        <li><strong>Analysis Phase:</strong> Strategic breakdown of creative briefs, target personas, and brand KPIs.</li>
+                        <li><strong>UI Architecture:</strong> Systematized design in Figma/Photoshop using advanced grid and hierarchy standards.</li>
+                        <li><strong>Development:</strong> High-performance build in Webflow with custom code and GSAP/Lottie interactions.</li>
+                        <li><strong>AI Acceleration:</strong> Integration of AI tools for rapid code refactoring and asset generation.</li>
+                        <li><strong>Infrastructure:</strong> Full management of cPanel, DNS configurations, and server-side deployment.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h3>Performance Metrics</h3>
+                <div class="info-grid">
+                    <ul>
+                        <li><strong>Responsiveness:</strong> 100% "Mobile-First" optimization across all viewports.</li>
+                        <li><strong>Quality Control:</strong> Adherence to rigorous agency aesthetic and technical standards.</li>
+                        <li><strong>Success Rate:</strong> 100% Client Satisfaction and approval upon final delivery.</li>
+                        <li><strong>SEO/WPO:</strong> Structural optimization for search visibility and peak loading speeds.</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="links-panel">
+            <div class="links-header">Selected Works</div>
+            <div class="projects-list">
+                <a href="https://abrahamalba.github.io/project-a/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <span>Project A</span>
+                    <small>View Site ↗</small>
+                </a>
+                <a href="https://abrahamalba.github.io/project-b/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <span>Project B</span>
+                    <small>View Site ↗</small>
+                </a>
+                <a href="https://abrahamalba.github.io/project-c/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <span>Project C</span>
+                    <small>View Site ↗</small>
+                </a>
+                <a href="https://abrahamalba.github.io/project-d/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <span>Project D</span>
+                    <small>View Site ↗</small>
+                </a>
+                <a href="https://abrahamalba.github.io/project-e/" class="project-card" target="_blank" rel="noopener noreferrer">
+                    <span>Project E</span>
+                    <small>View Site ↗</small>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
