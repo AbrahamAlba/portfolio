@@ -6,11 +6,18 @@
     <title>Abraham Alba | Lead Web Designer & Front-End Developer</title>
     <style>
         :root {
-            --bg-color: #fafafa;
-            --links-bg: #f0f0f0;
-            --text-color: #111111;
-            --accent-color: #555555;
-            --border-color: #e0e0e0;
+            /* Colores de texto y acentos */
+            --text-color: #1d1d1f;
+            --accent-color: #86868b;
+            
+            /* Variables Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.8);
+            --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.04), 
+                            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            --card-bg: rgba(255, 255, 255, 0.5);
+            --card-hover: rgba(255, 255, 255, 0.9);
+            --blur: blur(24px);
         }
         
         * {
@@ -20,34 +27,59 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             color: var(--text-color);
             line-height: 1.6;
-            background-color: var(--bg-color);
+            
+            /* Fondo Mesh Gradient suave para que el efecto cristal resalte */
+            background-color: #f5f5f7;
+            background-image: 
+                radial-gradient(at 10% 10%, rgba(220, 230, 255, 0.7) 0px, transparent 50%),
+                radial-gradient(at 90% 10%, rgba(255, 240, 245, 0.7) 0px, transparent 50%),
+                radial-gradient(at 50% 90%, rgba(240, 255, 240, 0.7) 0px, transparent 50%),
+                radial-gradient(at 90% 90%, rgba(230, 240, 255, 0.7) 0px, transparent 50%);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Layout Principal */
+        /* Custom Scrollbar estilo iOS */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Layout Principal con espacio para flotar */
         .portfolio-layout {
             display: flex;
-            /* En móvil: Enlaces arriba */
             flex-direction: column-reverse; 
             min-height: 100vh;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            max-width: 1600px;
+            margin: 0 auto;
         }
 
+        /* Paneles de Cristal */
         .info-panel, .links-panel {
-            padding: 3rem 2rem;
+            padding: 3rem 2.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            box-shadow: var(--glass-shadow);
         }
 
-        .info-panel {
-            background-color: var(--bg-color);
-        }
-
-        .links-panel {
-            background-color: var(--links-bg);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        /* Media Query para Escritorio (50/50) */
+        /* Media Query para Escritorio (50/50 flotante) */
         @media (min-width: 768px) {
             .portfolio-layout {
                 flex-direction: row; 
@@ -61,42 +93,45 @@
             .links-panel {
                 width: 50%;
                 padding: 4rem;
-                border-bottom: none;
-                border-left: 1px solid var(--border-color);
-                /* Anclaje para que siempre esté visible y escrollee por separado */
+                /* Sticky ajustado a los márgenes */
                 position: sticky;
-                top: 0;
-                height: 100vh;
+                top: 1.5rem;
+                height: calc(100vh - 3rem);
                 overflow-y: auto;
             }
         }
 
-        /* Tipografía y Espaciados de Información */
+        /* Tipografía Refinada */
         header {
             margin-bottom: 4rem;
-            border-bottom: 1px solid var(--border-color);
             padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.25rem;
+            background: linear-gradient(135deg, #111 0%, #555 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         h2 {
             font-size: 1.25rem;
-            font-weight: 400;
+            font-weight: 500;
             color: var(--accent-color);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            letter-spacing: -0.01em;
         }
 
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1.5rem;
             font-weight: 600;
-            display: inline-block;
+            letter-spacing: -0.01em;
+            color: #1d1d1f;
         }
 
         section {
@@ -105,17 +140,23 @@
 
         p {
             margin-bottom: 1rem;
+            color: #333336;
+        }
+
+        strong {
+            color: #1d1d1f;
+            font-weight: 600;
         }
 
         a {
-            color: var(--text-color);
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 3px;
+            color: #0066cc;
+            text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         a:hover {
-            color: var(--accent-color);
+            color: #004499;
+            text-decoration: underline;
         }
 
         ul {
@@ -126,6 +167,7 @@
             margin-bottom: 1.25rem;
             padding-left: 1.5rem;
             position: relative;
+            color: #333336;
         }
 
         li::before {
@@ -133,6 +175,7 @@
             position: absolute;
             left: 0;
             color: var(--accent-color);
+            font-weight: bold;
         }
 
         .info-grid {
@@ -146,11 +189,11 @@
         }
 
         .links-header {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             color: var(--accent-color);
         }
 
@@ -160,48 +203,57 @@
             gap: 1rem;
         }
 
+        /* Tarjetas de Proyecto Estilo iOS */
         .project-card {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem;
-            background: #ffffff;
-            border: 1px solid var(--border-color);
-            text-decoration: none;
+            padding: 1.25rem 1.5rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
             color: var(--text-color);
-            border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
 
         .project-card:hover {
-            transform: translateX(8px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border-color: var(--text-color);
+            transform: scale(1.02);
+            background: var(--card-hover);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
         }
 
         .project-card span {
             font-weight: 600;
             font-size: 1.1rem;
+            letter-spacing: -0.01em;
         }
         
         .project-card small {
             color: var(--accent-color);
-            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
         }
 
         /* Estilos Responsivos para Contenedores de Video */
         .video-grid-long {
             display: grid;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .video-wrapper-16-9 {
             position: relative;
-            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
             background-color: #000;
         }
 
@@ -216,17 +268,18 @@
 
         .video-grid-shorts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.25rem;
         }
 
         .video-wrapper-9-16 {
             position: relative;
-            padding-bottom: 177.77%; /* Relación de aspecto 9:16 para Shorts */
+            padding-bottom: 177.77%;
             height: 0;
             overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
             background-color: #000;
         }
 
@@ -284,7 +337,7 @@
                 <h3>Game Development</h3>
                 <div class="info-grid">
                     <p>Beyond web design and development, I channel my technical and artistic vision into creating video games. Whether I'm programming 2D mechanics, crafting engaging narratives for JRPG-style adventures, or showcasing projects at international festivals, I love bringing interactive worlds to life.</p>
-                    <p>You can play and discover my titles on <a href="https://abraham-alba.itch.io/" target="_blank" rel="noopener noreferrer">my itch.io profile</a>.</p>
+                    <p>You can play and discover my titles on <a href="https://abrahamalba.itch.io/" target="_blank" rel="noopener noreferrer">my itch.io profile</a>.</p>
                 </div>
             </section>
 
@@ -303,23 +356,23 @@
                 <div class="projects-list">
                     <a href="https://abrahamalba.github.io/project-a/" class="project-card" target="_blank" rel="noopener noreferrer">
                         <span>Project A</span>
-                        <small>View Site ↗</small>
+                        <small>View Site <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></small>
                     </a>
                     <a href="https://abrahamalba.github.io/project-b/" class="project-card" target="_blank" rel="noopener noreferrer">
                         <span>Project B</span>
-                        <small>View Site ↗</small>
+                        <small>View Site <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></small>
                     </a>
                     <a href="https://abrahamalba.github.io/project-c/" class="project-card" target="_blank" rel="noopener noreferrer">
                         <span>Project C</span>
-                        <small>View Site ↗</small>
+                        <small>View Site <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></small>
                     </a>
                     <a href="https://abrahamalba.github.io/project-d/" class="project-card" target="_blank" rel="noopener noreferrer">
                         <span>Project D</span>
-                        <small>View Site ↗</small>
+                        <small>View Site <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></small>
                     </a>
                     <a href="https://abrahamalba.github.io/project-e/" class="project-card" target="_blank" rel="noopener noreferrer">
                         <span>Project E</span>
-                        <small>View Site ↗</small>
+                        <small>View Site <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg></small>
                     </a>
                 </div>
             </div>
